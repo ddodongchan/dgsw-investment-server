@@ -1,0 +1,35 @@
+# Python 관련
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 가상환경 (Poetry, venv)
+.env
+.venv/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django 관련
+db.sqlite3
+*.sqlite3
+*.log
+media/
+staticfiles/
+*.swp
+*.swo
+
+# IDE 관련
+.vscode/
+.idea/
+*.iml
+
+# 환경 변수 및 보안 파일
+.env
+.env.local
+.env.production
+secrets.json
+
+# Mac 관련
+.DS_Store
