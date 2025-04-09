@@ -1,0 +1,20 @@
+[project]
+name = "rest-api-server"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "김동찬",email = "129833370+dongchandev@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.115.12,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "python-jose[cryptography] (>=3.4.0,<4.0.0)",
+    "pydantic (>=2.11.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

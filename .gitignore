@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+*.egg
+
+# Virtual environments (just in case)
+.venv/
+.env/
+.envrc
+venv/
+poetry.lock
+
+# Editor stuff
+.vscode/
+.idea/
+*.swp
+
+# macOS
+.DS_Store
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Traefik/Certificates
+acme.json
+
+# Byte-compiled files
+*.so
+
+# Test reports
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# MyPy
+.mypy_cache/
+
+# Local databases or temp files
+*.db
+*.sqlite3
+
+# Redis dump
+dump.rdb
