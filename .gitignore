@@ -9,7 +9,7 @@ __pycache__/
 
 # Virtual environments (just in case)
 .venv/
-.env/
+**/.env
 .envrc
 venv/
 poetry.lock
