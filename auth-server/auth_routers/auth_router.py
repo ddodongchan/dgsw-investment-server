@@ -8,9 +8,9 @@ from auth_schemas.auth_response_schema import Token
 from auth_services.auth_service import AuthService
 from base_response import BaseResponse
 
-router = APIRouter(prefix="/auth", tags=["Auth"])
+auth_router = APIRouter(prefix="/auth", tags=["Auth"])
 
-@router.post("/login", response_model=BaseResponse[Token])
+@auth_router.post("/login", response_model=BaseResponse[Token])
 async def login(
         request: LoginRequest,
         db: AsyncSession = Depends(get_db_session),

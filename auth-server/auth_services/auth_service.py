@@ -2,7 +2,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from auth_clients.dodam_client import request_get_user
 from auth_clients.user_internal_api_client import request_save_user_profile
-from auth_mapper.UserMapper import UserMapper
 from auth_models.user_credentials import UserRole, UserStatus, UserCredential
 from auth_repositories.user_credentials_repository import UserCredentialRepository
 from auth_schemas.auth_request_schema import LoginRequest

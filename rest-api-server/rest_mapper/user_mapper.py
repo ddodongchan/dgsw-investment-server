@@ -1,17 +1,16 @@
 from functools import singledispatchmethod
 
 from rest_models.user_profiles import UserProfile
-from rest_schemas.user_request_schema import SaveUserProfileRequest
+from rest_schemas.user_request_schema import SaveUserProfileRequest, UserProfileRequest
+
 
 class UserMapper:
-    @staticmethod
     @singledispatchmethod
-    def to_model(request):
-        raise NotImplementedError(f"지원하지 않는 타입: {type(request)}")
+    def to_model(self, request, *args, **kwargs) -> UserProfile:
+        raise NotImplementedError("지원하지 않는 타입입니다.")
 
-    @staticmethod
     @to_model.register
-    def _(request: SaveUserProfileRequest) -> UserProfile:
+    def _(self, request: SaveUserProfileRequest) -> UserProfile:
         return UserProfile(
             user_credential_id=request.credential_id,
             email=request.email,

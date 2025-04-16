@@ -7,3 +7,10 @@ class SaveUserProfileRequest(BaseModel):
     email: str
     name: str
     profile_image: str
+
+
+class UserProfileRequest(BaseModel):
+    credential_id: UUID
+    email: str
+    name: str
+    profile_image: str
