@@ -1,8 +1,11 @@
-from pydantic import BaseModel, HttpUrl
+from typing import Optional
+
+from pydantic import BaseModel, HttpUrl, EmailStr
+
 
 class DauthLoginData(BaseModel):
     name: str
-    profile_image: HttpUrl
+    profile_image: Optional[HttpUrl] = None
     location: HttpUrl
 
 class DauthLoginResponse(BaseModel):
@@ -27,9 +30,9 @@ class DauthUserData(BaseModel):
     room: int
     number: int
     name: str
-    profile_image: HttpUrl
+    profile_image: Optional[HttpUrl] = None
     role: str
-    email: str
+    email: EmailStr
 
 class DauthUserResponse(BaseModel):
     status: int
