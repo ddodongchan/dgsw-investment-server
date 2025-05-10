@@ -9,16 +9,16 @@ from auth_schemas.auth_response_schema import Token
 
 class JwtService:
     @staticmethod
-    def issue_token(user_credential_id: UUID, role: str) -> Token:
+    def issue_token(id: UUID, role: str) -> Token:
         return Token(
-            access_token=JwtService.create_access_token(user_credential_id, role),
-            refresh_token=JwtService.create_refresh_token(user_credential_id)
+            access_token=JwtService.create_access_token(str(id), role),
+            refresh_token=JwtService.create_refresh_token(str(id))
         )
 
     @staticmethod
-    def create_access_token(user_credential_id: UUID, role: str) -> str:
+    def create_access_token(id: str, role: str) -> str:
         payload = {
-            "sub": user_credential_id,
+            "sub": id,
             "role": role,
             "type": "access",
             "exp": datetime.now() + timedelta(minutes=settings.jwt_access_expiration_time)
@@ -26,9 +26,9 @@ class JwtService:
         return jwt.encode(payload, settings.jwt_secret_key, algorithm=settings.jwt_algorithm)
 
     @staticmethod
-    def create_refresh_token(user_credential_id: UUID) -> str:
+    def create_refresh_token(id: str) -> str:
         payload = {
-            "sub": user_credential_id,
+            "sub": id,
             "type": "refresh",
             "exp": datetime.now() + timedelta(days=settings.jwt_refresh_expiration_time)
         }
