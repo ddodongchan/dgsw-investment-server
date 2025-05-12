@@ -12,7 +12,7 @@ class UserCreate(BaseModel):
     status: UserStatus
     email: str
     name: str
-    profile_img: Optional[str] = None
+    profile_image: Optional[str] = None
 
 
 # Pydantic 스키마 정의

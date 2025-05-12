@@ -8,6 +8,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from rest_enum.user_enum import UserRole, UserStatus
 from rest_models.base import Base
 
+
 class User(Base):
     __tablename__ = "users"
     id: Mapped[PyUUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid4)

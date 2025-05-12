@@ -1,7 +1,7 @@
-from functools import singledispatchmethod, singledispatch
+from functools import singledispatchmethod
 
 from rest_models.user import User
-from rest_schemas.user import UserCreate, UserRead
+from rest_schemas.user import UserRead, UserCreate
 
 
 class UserMapper:
@@ -17,14 +17,14 @@ class UserMapper:
         raise NotImplementedError("지원하지 않는 타입입니다.")
 
     @to_model.register
-    def _(self, user_base: UserCreate) -> User:
+    def _(self, request: UserCreate) -> User:
         return User(
-            login_id = user_base.login_id,
-            role=user_base.role,
-            status=user_base.status,
-            email=str(user_base.email),
-            name=user_base.name,
-            profile_img=user_base.profile_img,
+            login_id=request.login_id,
+            email=request.email,
+            name=request.name,
+            status=request.status,
+            role=request.role,
+            profile_img=request.profile_image
         )
 
     @to_schema.register
