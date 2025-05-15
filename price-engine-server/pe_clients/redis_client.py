@@ -1,7 +1,7 @@
 # redis_stream.py
 import redis.asyncio as redis
 
-from rest_config.setting import settings
+from pe_config.setting import settings
 
 # Redis 연결
 redis = redis.Redis(host=settings.redis_stream_host, port=settings.redis_stream_port, db=0)

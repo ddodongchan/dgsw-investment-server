@@ -1,19 +1,23 @@
+import logging
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from rest_config.setting import settings
-from rest_models.user import User
+from rest_models.trade import Trade
 from rest_models.base import Base
 
-engine = create_async_engine(settings.DATABASE_URL, echo=True)
+engine = create_async_engine(settings.database_url, echo=True)
 
 SessionLocal = async_sessionmaker(
     bind=engine,
     class_=AsyncSession,
     expire_on_commit=False,
 )
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def get_db_session_for_consumer() -> AsyncGenerator[AsyncSession, None]:
@@ -23,6 +27,7 @@ async def get_db_session_for_consumer() -> AsyncGenerator[AsyncSession, None]:
             await session.commit()  # 커밋을 여기서 처리
         except Exception as e:
             await session.rollback()  # 롤백
+            # logger.error(f"Database operation failed: {e}", exc_info=True)
             raise e  # 예외를 다시 던져서 상위 처리로 넘김
         finally:
             await session.close()  # 세션 종료
