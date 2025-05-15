@@ -1,8 +1,6 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    internal_api_key: str
-    database_url: str
     redis_stream_host: str
     redis_stream_port: int
 
@@ -12,4 +10,3 @@ class Settings(BaseSettings):
 
 # Settings 인스턴스를 생성하고 확인
 settings = Settings()
-

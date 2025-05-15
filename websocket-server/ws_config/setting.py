@@ -2,14 +2,11 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     internal_api_key: str
-    database_url: str
     redis_stream_host: str
     redis_stream_port: int
+    rest_api_server_url: str
 
     class Config:
         env_file = ".env"
-        env_file_encoding = "utf-8"
 
-# Settings 인스턴스를 생성하고 확인
 settings = Settings()
-
