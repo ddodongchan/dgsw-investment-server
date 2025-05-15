@@ -4,9 +4,10 @@ from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from rest_config.setting import settings
+from rest_models.user import User
 from rest_models.base import Base
 
-engine = create_async_engine(settings.database_url, echo=True)
+engine = create_async_engine(settings.DATABASE_URL, echo=True)
 
 SessionLocal = async_sessionmaker(
     bind=engine,

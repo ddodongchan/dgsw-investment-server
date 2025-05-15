@@ -1,8 +1,8 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    internal_api_key: str
-    database_url: str
+    INTERNAL_API_KEY: str
+    DATABASE_URL: str
 
     class Config:
         env_file = ".env"
@@ -10,6 +10,3 @@ class Settings(BaseSettings):
 
 # Settings 인스턴스를 생성하고 확인
 settings = Settings()
-
-print(settings.internal_api_key)
-print(settings.database_url)
