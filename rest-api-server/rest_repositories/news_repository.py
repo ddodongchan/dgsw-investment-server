@@ -34,7 +34,7 @@ class NewsRepository:
 
         return news_list
 
-    async def find_by_date(self, stock_id: str, days: int, db_session: AsyncSession):
+    async def find_by_date(self, stock_id: UUID, days: int, db_session: AsyncSession):
         from_date = datetime.now() - timedelta(days=days)
         now = datetime.now()
 
