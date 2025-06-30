@@ -3,6 +3,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     redis_stream_host: str
     redis_stream_port: int
+    openai_key: str
 
     class Config:
         env_file = ".env"

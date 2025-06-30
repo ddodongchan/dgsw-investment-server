@@ -10,6 +10,7 @@ class NewsMapper:
         return News(
             user_id=user_id,
             title=request.title,
+            stock_id=request.stock_id,
             read=0,
             context= request.context
         )
@@ -18,6 +19,8 @@ class NewsMapper:
         return NewsResponse(
             user_id=news.user_id,
             user_name = news.user.name,
+            stock_id= news.stock_id,
+            stock_name = news.stock.name,
             title=news.title,
             context=news.context,
             date=news.date,

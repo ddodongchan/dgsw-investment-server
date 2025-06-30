@@ -76,7 +76,6 @@ class OrderConsumer:
             }
             await redis.xadd(TRADE_STREAM, {"data": json.dumps(trade_data, default=convert_uuid)})
 
-
             # 수량 갱신
             quantity -= traded_quantity
             target_quantity -= traded_quantity
